@@ -1,14 +1,19 @@
 services:
   - type: web
-    name: student-course-backend
+    name: student-course-system
     env: node
     rootDir: backend
-    buildCommand: npm install
+    buildCommand: npm ci
     startCommand: npm start
     envVars:
       - key: MONGO_URI
         sync: false
       - key: JWT_SECRET
         sync: false
-      - key: PORT
-        value: 5001
+staticSites:
+  - name: student-course-system-frontend
+    repo: https://github.com/JeevanBennur1234/student-course-system
+    branch: main
+    buildCommand: cd frontend && npm ci && npm run build
+    publishPath: frontend/dist
+    envVars: []
