@@ -14,7 +14,7 @@ function CoursesPage() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/courses');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
         console.log('Courses fetched:', response.data);
         setCourses(response.data.data || []);
         setLoading(false);
@@ -29,7 +29,7 @@ function CoursesPage() {
       if (!token) return;
       
       try {
-        const response = await axios.get('http://localhost:5001/api/enrollments/my-courses', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/enrollments/my-courses`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const enrolledIds = new Set(response.data.data.map(c => c._id));
@@ -57,7 +57,7 @@ function CoursesPage() {
     setEnrollingCourseId(courseId);
     try {
       const response = await axios.post(
-        'http://localhost:5001/api/enrollments',
+        `${import.meta.env.VITE_API_URL}/api/enrollments`,
         { courseId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

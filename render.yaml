@@ -12,8 +12,10 @@ services:
         sync: false
 staticSites:
   - name: student-course-system-frontend
-    repo: https://github.com/JeevanBennur1234/student-course-system
+    repo: https://github.com/your-username/your-repo-name
     branch: main
     buildCommand: cd frontend && npm ci && npm run build
     publishPath: frontend/dist
-    envVars: []
+    envVars:
+      - key: VITE_API_URL
+        value: https://your-backend-url.onrender.com

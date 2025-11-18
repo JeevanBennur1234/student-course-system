@@ -18,7 +18,7 @@ function MyCoursesPage() {
 
     const fetchMyCourses = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/enrollments/my-courses', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/enrollments/my-courses`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('My courses fetched:', response.data);
@@ -46,7 +46,7 @@ function MyCoursesPage() {
     }
 
     try {
-      const response = await axios.delete(`http://localhost:5001/api/enrollments/${enrollmentId}`, {
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/enrollments/${enrollmentId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

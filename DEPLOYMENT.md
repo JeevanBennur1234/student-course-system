@@ -17,10 +17,12 @@
 
 5. Add Environment Variables (in Render dashboard):
    ```
-   MONGO_URI = mongodb+srv://bennurjeevan_db_user:GEceam5CCGta11Ji@student-course-system.w2vnnuy.mongodb.net/?appName=student-course-system
-   JWT_SECRET = your_jwt_secret_key_here_change_in_production
+   MONGO_URI = your_mongodb_atlas_connection_string
+   JWT_SECRET = your_secure_jwt_secret_32_chars_minimum
    PORT = 5001
    ```
+   
+   **Important**: Use your actual MongoDB Atlas connection string and generate a secure JWT secret.
 
 6. Click "Create Web Service"
 7. Wait for deployment (5-10 minutes)
